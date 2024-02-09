@@ -1,0 +1,9 @@
+C:/Users/peter/Desktop/vhdl/32bitlookahead/partial_full_adder.vhdl {1 {vcom -work work -2002 -explicit -stats=none C:/Users/peter/Desktop/vhdl/32bitlookahead/partial_full_adder.vhdl
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Partial_Full_Adder
+-- Compiling architecture Behavioral of Partial_Full_Adder
+
+} {} {}}

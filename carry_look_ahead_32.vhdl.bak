@@ -23,7 +23,8 @@ end component;
 signal c : std_logic_vector(0 to 31);
 signal P,G: STD_LOGIC_VECTOR(31 downto 0);
 begin
- 
+    v1_arch: process 
+    begin
     PFA1: Partial_Full_Adder port map( A(0), B(0), Cin, S(0), P(0), G(0));
     PFA2: Partial_Full_Adder port map( A(1), B(1), c(1), S(1), P(1), G(1));
     PFA3: Partial_Full_Adder port map( A(2), B(2), c(2), S(2), P(2), G(2));
@@ -57,19 +58,15 @@ begin
     PFA31: Partial_Full_Adder port map( A(30), B(30), c(30), S(30), P(30), G(30));
     PFA32: Partial_Full_Adder port map( A(31), B(31), c(31), S(31), P(31), G(31));
     
-    arch1: process 
-    begin
+    
         c(0) <= G(0) or (P(0) and Cin);
         for i in 1 to 31 loop
-            c(i) <= G(i) or (P(i) and c(i));
-        end loop;
-
-        for i in 0 to 31 loop
-            S(i) <= (A(i) xor B(i)) xor c(i);
+            c(i) <= G(i) or (P(i) and c(i-1));
         end loop;
         wait;
 
+        S <= (A xor B) xor (c);
         Cout <= c(31);
-    end process arch1;
+    end process;
 
 end Behavioral;
